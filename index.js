@@ -1,5 +1,5 @@
 import express from 'express';
-import userRoutes from './routes/users.js'
+import productRoutes from './routes/product.js'
 
 
 const app = express();
@@ -7,7 +7,7 @@ const PORT = 5000
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
-app.use('/users', userRoutes)
+app.use('/users', productRoutes)
 app.get('/', (req, res) => {
     res.send('Hello')
 })

@@ -2,7 +2,7 @@
 import {con} from '../config/db_connection.js'
 
 
-export const getUser=(req,res)=>{
+export const getProduct=(req,res)=>{
    con.query ('select * from product', function(error, results){
       if (results){
        res.send(results)
@@ -13,7 +13,7 @@ export const getUser=(req,res)=>{
    });
  }
 
- export const createUser=(req,res)=>{
+ export const createProduct=(req,res)=>{
     const id=req.body.id;
     const name=req.body.name;
     const description=req.body.description;
@@ -28,7 +28,7 @@ export const getUser=(req,res)=>{
     
  }
 
- export const getUserById=(req,res)=>{
+ export const getProductById=(req,res)=>{
     const id=req.params.id;
     con.query(`select * from product where id=${id}`,(err,data)=>{
       if(data){
@@ -40,7 +40,7 @@ export const getUser=(req,res)=>{
     
  }
 
- export const removeUserById=(req,res)=>{
+ export const removeProductById=(req,res)=>{
     const id=req.params.id;
     con.query(`delete from product where id=${id}`,(err,data)=>{
       if(data){
@@ -50,7 +50,7 @@ export const getUser=(req,res)=>{
       }
     })
  }
- export const updateUserById=(req,res)=>{
+ export const updateProductById=(req,res)=>{
     const id=req.params.id;
     const {name,description,price}=req.body;
     const findUserQuery=`select * from product where id=${id}`;
